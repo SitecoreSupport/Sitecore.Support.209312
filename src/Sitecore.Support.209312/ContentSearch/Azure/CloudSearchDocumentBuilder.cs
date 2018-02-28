@@ -19,17 +19,18 @@
 
         protected override void AddComputedIndexField(IComputedIndexField computedIndexField, object fieldValue)
         {
-            if (fieldValue is IEnumerable && fieldValue.GetType().IsGenericType)
-            {
-                foreach (var field in fieldValue as IEnumerable)
-                {
-                    this.AddField(computedIndexField.FieldName, field);
-                }
-            }
-            else
-            {
-                this.AddField(computedIndexField.FieldName, fieldValue);
-            }
+            //Sitecore.Support.209312
+            //if (fieldValue is IEnumerable && fieldValue.GetType().IsGenericType)
+            //{
+            //    foreach (var field in fieldValue as IEnumerable)
+            //    {
+            //        this.AddField(computedIndexField.FieldName, field);
+            //    }
+            //}
+            //else
+            //{
+            this.AddField(computedIndexField.FieldName, fieldValue);
+            //}
         }
     }
 }
